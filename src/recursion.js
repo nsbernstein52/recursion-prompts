@@ -6,14 +6,53 @@
 // denoted by n!, is the product of all positive integers less than or equal to n.
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
-var factorial = function(n) {
+var factorial = function(num) {
+  // I: num
+  // O: factorial = num! x (num-1) x (num-2) ... x 1
+  //   0! := 1
+  //   if num !== positive integer, => null
+  // assumptions: none
+
+  // verify: n is NOT an integer, return that num is not an integer
+  if (!Number.isInteger(num) || num <0) {
+    // return (num + " is not a positive integer");
+    return null
+
+  // if n < 0, return -1
+  } else if (num < 0) {
+      return -1
+
+  // if n === 0, return 0
+  } else if (num === 0) {
+      return 1
+  // if n >= 1
+  } else {
+      return num * (factorial(num -1 ))
+  }
 };
 
+  // factorial: test data and calls
+  let num = "";
+  num = "abc"; // string
+  console.log("abc=>NaPI: ", factorial(num));
+  
+  num = -2; // negative 
+  console.log("-2=>NaPI: ", factorial(num));
+  
+  num = 1.5
+  console.log("1.5=>NaPI: ", factorial(num));
+  
+  num = 0;
+  console.log("0+>1: ", factorial(num));
+  
+  num = 5;
+  console.log("5=> 120: ", factorial(num));
+  
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
-};
-
+  };
+  
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
