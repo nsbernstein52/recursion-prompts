@@ -135,7 +135,23 @@ console.log("-5=>f: ", isEven(n));
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  if (n === 1 || n === 0) {
+    return 0
+  } else if (n < 1) {
+    return n + 1 + sumBelow(n + 1)
+  } else {
+    return n - 1 + sumBelow(n - 1)
+  }
 };
+// sumBelow: data and tests
+// let n = 1;
+// console.log("1=>0: ", sumBelow(n));
+// n = 4;
+// console.log("4=>10: ", sumBelow(n));
+// n = 0;
+// console.log("0=>0: ", sumBelow(n));
+// n = -3;
+// console.log("-3=>-3: ", sumBelow(n));
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
