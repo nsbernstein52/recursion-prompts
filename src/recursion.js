@@ -112,7 +112,24 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+    if (n < 0) {
+        n = -n;
+    }
+    if (n === 0) return true;
+    else if (n === 1) return false;
+    else return isEven(n - 2)    
 };
+// isEven: data and tests
+let n = 0;
+console.log("0=>t: ", isEven(n));
+n = 6
+console.log("6=>t: ", isEven(n));
+n = -4
+console.log("-4=>t: ", isEven(n));
+n = 3
+console.log("3=>f: ", isEven(n));
+n = -5
+console.log("-5=>f: ", isEven(n));
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
