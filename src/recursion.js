@@ -81,7 +81,34 @@ console.log("[-1, 2, -3, 4, -5, 6]=>:3: ", sum(arr));
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+// function arraySum(array) {
+  // I: array: array of integers
+  // O: sum of all elements
+  // assumptions:
+  //   Integers
+  //   Do not mutate input array
+  
+  if (array.length === 0) {
+    return 0;
+  } else if (array.length > 0) {
+    return arraySum(array[0]) + arraySum(array.slice(1));
+  } else {
+    return array;
+  } 
 };
+
+// arraySum: sum of nested array of integers: data and tests
+// let arr = [];
+// console.log("[]=>0: ", arraySum(arr));
+
+// arr = [1,[2,3],[[4]],5];
+// console.log("[1,[2,3],[[4]],5]=>15: ", arraySum(arr));
+
+// arr = [1, 2, 3, 4, 5, 6];
+// console.log("[1,2,..,6]=>:21: ", arraySum(arr));
+
+// arr = [-1, 2, -3, 4, -5, 6];
+// console.log("[-1, 2, -3, 4, -5, 6]=>:3: ", arraySum(arr));
 
 // 4. Check if a number is even.
 var isEven = function(n) {
