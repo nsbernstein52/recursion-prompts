@@ -51,8 +51,33 @@ var factorial = function(num) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
-  };
-  
+  // I: array: array of integers
+  // O: sum of all elements
+  // assumptions:
+  //   Integers
+  //   Do not mutate input array
+
+  // make value copy of array to avoid mutating array
+  let tempArr = array.slice();
+ if (tempArr.length === 0) {
+    return 0;
+ } else if (tempArr.length === 1) {
+    return tempArr[0];
+  } else {
+    return tempArr.shift() + sum(tempArr);
+  }
+};
+
+// sum of array of integers: data and tests
+let arr = [];
+console.log("[]=>0: ", sum(arr));
+
+arr = [1, 2, 3, 4, 5, 6];
+console.log("[1,2,..,6]=>:21: ", sum(arr));
+
+arr = [-1, 2, -3, 4, -5, 6];
+console.log("[-1, 2, -3, 4, -5, 6]=>:3: ", sum(arr));
+
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
