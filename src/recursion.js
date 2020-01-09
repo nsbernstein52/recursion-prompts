@@ -172,6 +172,28 @@ var range = function(num1, num2) {
     return rangeArr;
   }
 };
+// range: data and tests
+let x = 2;
+let y = 3;
+console.log("2,3: ", range(x, y));
+x = 2;
+y = 3;
+console.log("2,3: ", range(x, y));
+x = 2;
+y = 4;
+console.log("2,4: ", range(x, y));
+x = 4;
+y = 2;
+console.log("4,2: ", range(x, y));
+x = 2;
+y = 9;
+console.log("2,9: ", range(x, y));
+x = -5;
+y = -1;
+console.log("-5,-1: ", range(x, y));
+x = 9;
+y = 2;
+console.log("9,2: ", range(x, y));
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
@@ -179,7 +201,32 @@ var range = function(num1, num2) {
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  if (!Number.isInteger(exp)) {
+    return "Not an integer"
+  } else if (exp === 0 ) {
+    return 1
+  } else if (exp > 0) {
+    return base * exponent(base, exp - 1)
+  } else if (exp < 0) {
+    return 1 / exponent(base, (exp * (-1)))
+  }    
 };
+// exponent: data and tests
+let base = 2;
+let exp = 0;
+console.log("2,0=>1: ", exponent(base,exp));
+base = 3;
+exp = 1;
+console.log("3,1=>3: ", exponent(base,exp));
+base = 2;
+exp = 8;
+console.log("2,8=>256: ", exponent(base,exp));
+base = 8;
+exp = 2;
+console.log("8,2=>64: ", exponent(base,exp));
+base = 10;
+exp = -2;
+console.log("10,-2=>0.01: ", exponent(base,exp));
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
