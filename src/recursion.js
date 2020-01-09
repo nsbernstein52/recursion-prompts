@@ -155,7 +155,22 @@ var sumBelow = function(n) {
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
-var range = function(x, y) {
+var range = function(num1, num2) {
+  if (Math.abs(num2 - num1) < 2) {
+    return [];
+  } else if ((num2 - num1) === 2) {
+    return [num1 + 1];
+  } else if ((num1 - num2) === 2) {
+    return [num2 + 1];
+  } else if (num1 < num2) { 
+    let rangeArr = range(num1, num2 - 1);
+    rangeArr.push(num2 - 1);
+    return rangeArr;
+  } else { // num1 > num2
+    let rangeArr = range(num1, num2 + 1);
+    rangeArr.push(num2 + 1);
+    return rangeArr;
+  }
 };
 
 // 7. Compute the exponent of a number.
