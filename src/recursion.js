@@ -530,7 +530,20 @@ console.log("abcd, abc: ", compareStr(str1, str2));*/
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
+  if (str.length === 0) {
+    return [];
+  } else if (str.length === 1) {
+    return [str.charAt(0)]
+  } else {
+    return [str.charAt(0)].concat(createArray(str.substr(1)))
+  }
 };
+/*// createArray recursive: data & tests
+var str = "";
+console.log("'': ", createArray(str));
+var str = "abc";
+console.log("abc: ", createArray(str));
+*/
 
 // 17. Reverse the order of an array
 var reverseArr = function(array) {
