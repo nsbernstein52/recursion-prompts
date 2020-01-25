@@ -547,7 +547,22 @@ console.log("abc: ", createArray(str));
 
 // 17. Reverse the order of an array
 var reverseArr = function(array) {
+  let tempArr = array.slice();
+  let tempArrLen = tempArr.length;
+  if (tempArrLen === 0) {
+    return []
+  } else if (tempArrLen === 1) {
+    return [tempArr[0]]
+  } else {
+    let shorterArr = tempArr.slice(1,tempArrLen);
+    return [].concat(reverseArr(shorterArr), [tempArr[0]])
+  }
 };
+/*// reverseArr recursive: data & tests
+var arr = [];
+console.log("[]: ", reverseArr(arr));
+arr = ["a", "b", "c", "d"];
+console.log("[a,b,c,d]: ", reverseArr(arr));*/
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
