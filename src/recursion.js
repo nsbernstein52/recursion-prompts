@@ -513,7 +513,19 @@ var compareStr = function(str1, str2) {
     }
   }
 };
-
+/*// compareStr recursive: data & tests
+var str1 = "";
+var str2 = "abc";
+console.log("'', abc: ", compareStr(str1, str2));
+str1 = "abc";
+str2 = "abc";
+console.log("abc, abc: ", compareStr(str1, str2));
+str1 = "abc";
+str2 = "abcd";
+console.log("abc, abcd: ", compareStr(str1, str2));
+str1 = "abcd";
+str2 = "abc";
+console.log("abcd, abc: ", compareStr(str1, str2));*/
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
