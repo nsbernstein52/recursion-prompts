@@ -288,7 +288,45 @@ console.log('"abc": ', reverse(str));
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  if (string.length === 0) {
+    // base case: empty string: false
+    return false
+  } else if (string.length === 1) {
+    // single char: true
+    return true
+  } else {
+    // recursive case
+    let lcStr = string.toLowerCase();
+    let frontChar = lcStr.charAt(0);
+    let endI = lcStr.length - 1;
+    let endChar = lcStr.charAt(endI)
+    if (frontChar !== endChar) {
+      return false
+    } else {
+      shorterStr = lcStr.slice(1,lcStr.length-1);
+    }
+    if (lcStr.length % 2 === 1) {
+      // odd number of chars, 3+
+      return palindrome(shorterStr)
+    } else {
+    // even number of chars, 2+
+      if (shorterStr.length === 2) {
+        return true
+      } else {
+        return palindrome(shorterStr);
+      }
+    }
+  }
 };
+/*// palindrome, recursive: data & tests
+var str = '';
+console.log("nullStr: ", palindrome(str));
+str = 'abc';
+console.log("nullStr: ", palindrome(str));
+str = 'abcba';
+console.log("nullStr: ", palindrome(str));
+str = 'abba';
+console.log("nullStr: ", palindrome(str)); */
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
@@ -296,7 +334,42 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+  if (y === 0) {
+    return NaN
+  } 
+  if (x === 0) {
+    return 0
+  }
+  if (y < 0) {
+    y = -y;
+  }
+  if (x < 0) {
+    return -modulo(-x, y)
+  } 
+  if (x < y) {
+    return x
+  }
+  return modulo(x - y, y);
 };
+// modulo recursively: data & tests
+/*var x = 1;
+var y = 0;
+console.log("1,0: ", modulo(x,y));
+x = 0;
+y = 1;
+console.log("0,1: ", modulo(x,y));
+x = 5;
+y = 2;
+console.log("5,2: ", modulo(x,y));
+x = 17;
+y = 5;
+console.log("17,5: ", modulo(x,y));
+x = 20;
+y = 4;
+console.log("20,4: ", modulo(x,y));
+x = -20;
+y = 4;
+console.log("-20,4: ", modulo(x,y));*/
 
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
