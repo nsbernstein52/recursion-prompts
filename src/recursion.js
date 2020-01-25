@@ -374,12 +374,88 @@ console.log("-20,4: ", modulo(x,y));*/
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
+  if (y === 0) {
+    return 0
+  }
+  if (y > 0) {
+    return (x + multiply(x, y - 1))
+  }
+  if (y < 0) {
+    return -multiply(x, -y)
+  }
 };
+/* // multiply recursively: data and tests
+var x = 1;
+var y = 0
+console.log("1,0: ", multiply(x,y));
+x = 0;
+y = 1;
+console.log("0,1: ", multiply(x,y));
+x = 5;
+y = 6;
+console.log("5,6: ", multiply(x,y));
+x = -5;
+y = 6;
+console.log("-5,6: ", multiply(x,y));
+x = -5;
+y = -6;
+console.log("-5,-6: ", multiply(x,y));*/
 
-// 13. Write a function that divides two numbers without using the / operator or
+// 13. Write a function that divides two numbers without using the division operator or
 // Math methods to arrive at an approximate quotient (ignore decimal endings).
 var divide = function(x, y) {
+  if (y === 0) {
+    return NaN
+  } else if (x === 0) {
+    return 0
+  } else if (x < 0) {
+    return -divide(-x, y)
+  } else if (y < 0) {
+    return -divide(x, -y)
+  } else if (x < y) {
+    return 0
+  } else {
+    return divide(x - y, y) + 1;
+  }
 };
+/* operator or
+// Math methods to arrive at an approximate quotient (ignore decimal endings).
+var divide = function(x, y) {
+  // base cases
+  if (y === 0) {
+    return NaN
+  } else 
+  if (x === 0) {
+    return 0
+  } else if (x < 0) {
+    return -divide(-x, y)
+  } else if (y < 0) {
+    return -divide(x, -y)
+  } else if (x < y) {
+    return 0
+  } else {
+    return divide(x - y, y) + 1;
+  }
+};
+// divide recursively: data and tests
+var x = 1;
+var y = 0
+console.log("1,0: ", divide(x,y));
+x = 0;
+y = 1;
+console.log("0,1: ", divide(x,y));
+x = 13;
+y = 6;
+console.log("13,6: ", divide(x,y));
+x = -5;
+y = 2;
+console.log("-5,2: ", divide(x,y));
+x = 5;
+y = -2;
+console.log("5,-2: ", divide(x,y));
+x = -10;
+y = -2;
+console.log("-5,-2: ", divide(x,y));*/
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
 // integers is the greatest integer that divides both x and y with no remainder.
@@ -387,14 +463,57 @@ var divide = function(x, y) {
 // http://www.cse.wustl.edu/~kjg/cse131/Notes/Recursion/recursion.html
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
 var gcd = function(x, y) {
+  if (x < 0 || y < 0) {
+    return null;
+  } else if (x === 0 || y === 0) {
+    return 0
+  } else if (x === y) {
+    return x;
+  } else if (x > y) {
+    return gcd(x - y, y);
+  } else {
+    return gcd(x, y-x);
+  }
 };
+/*// gcd recursive: data and tests
+var x = 36;
+var y = 24;
+console.log("36, 24: ", gcd(x,y));
+x = 12;
+y = 24;
+console.log("12, 24: ", gcd(x,y));
+x = 12;
+y = 12;
+console.log("12, 12: ", gcd(x,y));
+x = 0;
+y = 12;
+console.log("0, 12: ", gcd(x,y));*/
 
 // 15. Write a function that compares each character of two strings and returns true if
 // both are identical.
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false
+  } else if (str1.length === 0) {
+    return true
+  } else {
+    let strLen = str1.length
+    let front1 = str1.charAt(0);
+    let end1 = str1.charAt(strLen - 1)
+    let front2 = str2.charAt(0);
+    let end2 = str2.charAt(strLen - 1)    
+    if (front1 !== front2 || end1 !== end2) {
+      return false
+    } else {
+      let shorterStr1 = str1.slice(1, strLen);
+      let shorterStr2 = str2.slice(1, strLen);
+      return compareStr(shorterStr1, shorterStr2)    
+    }
+  }
 };
+
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
