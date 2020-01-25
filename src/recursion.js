@@ -233,11 +233,58 @@ console.log("10,-2=>0.01: ", exponent(base,exp));
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  if (n <= 0) {
+    // base case 0: false
+      return false
+    } else if (n === 1) {
+    // base case 1: true
+      return true;
+    // base case 1: true
+    } else if (n > 0 && n < 1 && 1/n % 2 !== 0) {
+    // base case: fraction not a power of 2
+      return false;
+    } else if (n < 1) {
+    // recursive case, n is negative
+      return powerOfTwo(n * 2)
+    } else if (n > 1) {
+    // recursive case, n is positive
+      return powerOfTwo(n / 2)
+    }
 };
+/*// powerOfTwo recursive: data & tests
+var num = 4;
+console.log("4=>true: ", powerOfTwo(num));
+num = 1;
+console.log("1=>true: ", powerOfTwo(num));
+num = 1/2;
+console.log("1/2=>true: ", powerOfTwo(num));
+num = 1/16;
+console.log("1/16=>true: ", powerOfTwo(num));
+num = 0;
+console.log("0=>false: ", powerOfTwo(num));
+num = -6;
+console.log("-6=>false: ", powerOfTwo(num));
+num = 5;
+console.log("5=>false: ", powerOfTwo(num));
+num = 1/5;
+console.log("1/5=>false: ", powerOfTwo(num)); 
+*/
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  if (string.length === 0) {
+    return "";
+  } else {
+    let nextChar = string.charAt(string.length - 1);
+    let shorterStr = string.slice(0, string.length-1)
+    return (nextChar + reverse(shorterStr))
+  }
 };
+// reverse(string): data and tests
+let str = "";
+console.log('"": ', reverse(str));
+str = "abc";
+console.log('"abc": ', reverse(str));
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
