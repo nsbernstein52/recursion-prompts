@@ -606,7 +606,26 @@ console.log("5: ", fizzBuzz(n));*/
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value) {
+  if (array.length === 0) {
+    return 0
+  }
+  let count = 0;
+  if (array[0] === value) {
+    count = 1;
+  }
+  return (count + countOccurrence(array.slice(1), value))
 };
+// countOccurrence recursive: data and tests
+/*var arr = [];
+var val = 4;
+console.log("[], 4: ", countOccurrence(arr, val));
+arr = [2,7,4,4,1,4];
+val = 4;
+console.log("[2,7,4,4,1,4], 4: ", countOccurrence(arr, val));
+arr = [2,'banana',4,4,1,'banana'];
+val = 'banana';
+console.log("[2,'banana',4,4,1,'banana'], 4: ", countOccurrence(arr, val));*/
+
 
 // 21. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
