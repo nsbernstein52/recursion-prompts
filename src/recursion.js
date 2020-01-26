@@ -630,7 +630,21 @@ console.log("[2,'banana',4,4,1,'banana'], 4: ", countOccurrence(arr, val));*/
 // 21. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
+  if (array.length === 0) {
+    return []
+  }
+  if (array.length === 1) {
+    return callback(array)
+  } else {
+    return [callback(array[0])].concat(rMap(array.slice(1), callback))
+  }
 };
+// rMap recursive: data & tests
+/*var arr = [1,2,3];
+var cbFn = function(n) {
+  return n * 2
+}
+console.log("[1,2,3], n*2: ", rMap(arr, cbFn)); */
 
 // 22. Write a function that counts the number of times a key occurs in an object.
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
