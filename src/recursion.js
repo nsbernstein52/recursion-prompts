@@ -698,20 +698,6 @@ console.log(countValuesInObj(obj, 'e')) // 2 */
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
 // them to a provided new name while preserving the value stored at that key.
 var replaceKeysInObj = function(obj, oldKey, newKey) {
-//   if (Object.keys(obj).length === 0) {
-//     return obj
-//   }
-//   for (var key in obj) {
-//     var val = obj[key];
-//     if (key === oldKey) {
-//       obj[newKey] = val;
-//       delete obj[oldKey];
-//     }
-//     if (typeof val === 'object') { // obj[key]
-//       obj[key] = replaceKeysInObj(val, oldKey, newKey)
-//     }
-//   } 
-// };
   if (Object.keys(obj).length === 0) {
     return obj
   }
@@ -727,7 +713,7 @@ var replaceKeysInObj = function(obj, oldKey, newKey) {
   } 
   return obj;
 };
-//*/ replaceKeysInObj recursive: data & tests
+// replaceKeysInObj recursive: data & tests
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
 // var ra = replaceKeysInObj(obj, 'r', 'a');
 // console.log("ra: ",ra);
