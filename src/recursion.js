@@ -650,20 +650,73 @@ console.log("[1,2,3], n*2: ", rMap(arr, cbFn)); */
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
 // countKeysInObj(obj, 'r') // 1
 // countKeysInObj(obj, 'e') // 2
-var countKeysInObj = function(obj, key) {
-};
+// var countKeysInObj = function(obj, key) {
+  var countKeysInObj = (obj, key) => Object.keys(obj).reduce(((accum, currKey) => {
+    if (typeof obj[currKey] !== 'object' && currKey === key) return accum + 1;
+    if (typeof obj[currKey] === 'object' && currKey === key) return accum + 1 + countKeysInObj(obj[currKey], key);
+    if (typeof obj[currKey] == 'object' && currKey !== key) return accum  + countKeysInObj(obj[currKey], key);
+    return accum
+  }), 0);
+// countKeysInObj recursive: data & tests
+/*var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
+console.log(countKeysInObj(obj, 'r')) // 1
+console.log(countKeysInObj(obj, 'e')) // 2 */
+  
+
 
 // 23. Write a function that counts the number of times a value occurs in an object.
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
 // countValuesInObj(obj, 'r') // 2
 // countValuesInObj(obj, 'e') // 1
 var countValuesInObj = function(obj, value) {
+  var count = 0;
+  for (var key in obj) {
+    var currVal = obj[key];
+    if (typeof currVal === 'object') {
+      count += countValuesInObj(currVal, value)
+    } else if (currVal === value) {
+      count++;
+    }
+  }
+  return count;
 };
+/*// countValuesInObj recursive: data & tests
+var obj1 = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
+console.log("e,1: ", countValuesInObj(obj1, 'e')); // 1
+console.log("x,0: ", countValuesInObj(obj1, 'x')); // 1
+console.log("y,1: ", countValuesInObj(obj1, 'y')); // 1
+console.log("t,0: ", countValuesInObj(obj1, 't')); // 1
+console.log("r,2: ", countValuesInObj(obj1, 'r')); // 2
+console.log("p,0: ", countValuesInObj(obj1, 'p')); // 1 */
+
+// countValuesInObj recursive: data & tests
+/*var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
+console.log(countValuesInObj(obj, 'r')) // 1
+console.log(countValuesInObj(obj, 'e')) // 2 */
+
 
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
 // them to a provided new name while preserving the value stored at that key.
 var replaceKeysInObj = function(obj, oldKey, newKey) {
+  if (Object.keys(obj).length === 0) {
+    return obj
+  }
+  for (var key in obj) {
+    var val = obj[key];
+    if (key === oldKey) {
+      obj[newKey] = val;
+      delete obj[oldKey];
+    }
+    if (typeof val === 'object') { // obj[key]
+      obj[key] = replaceKeysInObj(val, oldKey, newKey)
+    }
+  } 
 };
+// replaceKeysInObj recursive: data & tests
+/*var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
+console.log(replaceKeysInObj(obj, 'r', 'a')) // 1
+console.log(replaceKeysInObj(obj, 'y', 'u')) // 2 
+console.log(replaceKeysInObj(obj, 'e', 'f')) // 2 */
 
 // 25. Get the first n Fibonacci numbers. In the Fibonacci sequence, each subsequent
 // number is the sum of the previous two.
