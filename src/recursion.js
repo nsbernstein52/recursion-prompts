@@ -847,8 +847,28 @@ console.log(flatten([[1],[2,[],3],[],[[4]],5])); // [1,2,3,4,5]
 
 // 31. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {p:1, o:2, t:2, a:1}
-var letterTally = function(str, obj) {
+var letterTally = function(str, obj = {}) {
+  if (str.length === 0) return obj;
+  let objKeys = Object.keys(obj);
+  if (objKeys.length !== 0) {
+  // if (Object.keys(obj).length !== 0){
+    if (obj.hasOwnProperty(str[0])) { //str[0] in obj
+      obj[str[0]] +=1
+    } else {
+      obj[str[0]] = 1;
+    }
+  } else {
+    obj[str[0]] = 1;
+  }
+  // }
+  return letterTally(str.slice(1), obj);
 };
+// letterTally recursively: data & tests
+console.log(letterTally('potato')); // {p:1, o:2, t:2, a:1}
+console.log(letterTally('orangutan'));
+console.log(typeof letterTally('orangutan'));
+console.log(typeof letterTally('orangutan'));
+
 
 // 32. Eliminate consecutive duplicates in a list. If the list contains repeated
 // elements they should be replaced with a single copy of the element. The order of the
