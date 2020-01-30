@@ -748,7 +748,23 @@ var fibonacci = function(n) {
 // nthFibo(7); // 13
 // nthFibo(3); // 2
 var nthFibo = function(n) {
+  if (n < 0) {
+    return null
+  } else if (n === 0) {
+    return 0
+  } else if (n === 1) {
+    return 1
+  } else {
+    return nthFibo(n -1) + nthFibo(n - 2)
+  }
 };
+// nthFibo recursively: data & tests
+console.log("-1: ", nthFibo(-1)); // null
+console.log("0: ", nthFibo(0)); // null
+console.log("3,2: ", nthFibo(3)); // 2
+console.log("5,5: ", nthFibo(5)); // 5
+console.log("7,13: ", nthFibo(7)); // 13
+
 
 // 27. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
