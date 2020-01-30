@@ -808,7 +808,27 @@ console.log( capitalizeFirst(['car','poop','banana'])); // ['Car','Poop','Banana
 // };
 // nestedEvenSum(obj1); // 10
 var nestedEvenSum = function(obj) {
+  let sum = 0;
+  for (let currKey in obj) {
+    let currVal = obj[currKey];
+    if (currVal % 2 === 0) {
+      sum += obj[currKey]
+    }
+    if (typeof currVal === 'object') {
+      sum += nestedEvenSum(currVal)
+    }
+  }
+  return sum
 };
+// nestedEvenSum recursively: data & tests
+var obj1 = {
+  a: 2,
+  b: {b: 2, bb: {b: 3, bb: {b: 2}}},
+  c: {c: {c: 2}, cc: 'ball', ccc: 5},
+  d: 1,
+  e: {e: {e: 2}, ee: 'car'}
+};
+console.log(nestedEvenSum(obj1)); // 10
 
 // 30. Flatten an array containing nested arrays.
 // flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
