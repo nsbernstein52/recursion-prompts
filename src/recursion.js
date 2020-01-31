@@ -907,7 +907,16 @@ var augmentElements = function(array, aug) {
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
 var minimizeZeroes = function(array) {
+  if (arr.length === 0) return [];
+  let compressedArr = minimizeZeroes(arr.slice(1));
+  if ((arr[0] === 0 ^ compressedArr[0] === 0) || arr[0] !== 0) {
+    compressedArr.unshift(arr[0]);
+  }
+  return compressedArr
 };
+// compress recursive: data & tests
+console.log(minimizeZeroes([2,0,0,0,1,4])) // [2,0,1,4]
+console.log(minimizeZeroes([2,0,0,0,1,0,0,4])) // [2,0,1,0,4]
 
 // 35. Alternate the numbers in an array between positive and negative regardless of
 // their original sign. The first number in the index always needs to be positive.
