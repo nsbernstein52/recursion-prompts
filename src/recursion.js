@@ -383,22 +383,22 @@ var multiply = function(x, y) {
     return -multiply(x, -y)
   }
 };
-/* // multiply recursively: data and tests
-var x = 1;
-var y = 0
-console.log("1,0: ", multiply(x,y));
-x = 0;
-y = 1;
-console.log("0,1: ", multiply(x,y));
-x = 5;
-y = 6;
-console.log("5,6: ", multiply(x,y));
-x = -5;
-y = 6;
-console.log("-5,6: ", multiply(x,y));
-x = -5;
-y = -6;
-console.log("-5,-6: ", multiply(x,y));*/
+// multiply recursively: data and tests
+// var x = 1;
+// var y = 0
+// console.log("1,0: ", multiply(x,y));
+// x = 0;
+// y = 1;
+// console.log("0,1: ", multiply(x,y));
+// x = 5;
+// y = 6;
+// console.log("5,6: ", multiply(x,y));
+// x = -5;
+// y = 6;
+// console.log("-5,6: ", multiply(x,y));
+// x = -5;
+// y = -6;
+// console.log("-5,-6: ", multiply(x,y));
 
 // 13. Write a function that divides two numbers without using the division operator or
 // Math methods to arrive at an approximate quotient (ignore decimal endings).
@@ -688,9 +688,9 @@ var countValuesInObj = function(obj, value) {
 // console.log("p,0: ", countValuesInObj(obj1, 'p')); // 1
 
 // countValuesInObj recursive: data & tests
-/*var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
-console.log(countValuesInObj(obj, 'r')) // 1
-console.log(countValuesInObj(obj, 'e')) // 2 */
+// var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
+// console.log(countValuesInObj(obj, 'r')) // 1
+// console.log(countValuesInObj(obj, 'e')) // 2
 
 
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
@@ -874,7 +874,17 @@ console.log(typeof letterTally('orangutan'));
 // compress([1,2,2,3,4,4,5,5,5]) // [1,2,3,4,5]
 // compress([1,2,2,3,4,4,2,5,5,5,4,4]) // [1,2,3,4,2,5,4]
 var compress = function(list) {
+  if (arr.length === 0) return [];
+  let compressedArr = compress(arr.slice(1));
+  if (arr[0] !== compressedArr[0]) {
+    compressedArr.unshift(arr[0]);
+  }
+  return compressedArr
 };
+// compress recursive: data & tests
+console.log(compress([1,2,2,3,4,4,5,5,5])) // [1,2,3,4,5]
+console.log(compress([1,2,2,3,4,4,2,5,5,5,4,4])) // [1,2,3,4,2,5,4]
+
 
 // 33. Augment every element in a list with a new value where each element is an array
 // itself.
