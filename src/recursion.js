@@ -892,7 +892,16 @@ console.log(compress([1,2,2,3,4,4,2,5,5,5,4,4])) // [1,2,3,4,2,5,4]
 // itself.
 // augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
 var augmentElements = function(array, aug) {
+  let tempArr = arr.slice();
+  if (tempArr.length === 0) return [];
+  if (tempArr.length === 1) return tempArr[0];
+  return [tempArr[0].concat(aug)].concat(augmentElements(arr.slice(1),aug));
 };
+// augmentElements recursively: data & tests
+// var arr1 = [[],[3],[7]];
+// var aug1 = 5;
+// console.log("arr1: ", arr1);
+// console.log("augArr: ", augmentElements(arr1, aug1)); //[[5],[3,5],[7,5]]
 
 // 34. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
