@@ -883,6 +883,8 @@ var compress = function(list) {
 };
 // compress recursive: data & tests
 console.log(compress([1,2,2,3,4,4,5,5,5])) // [1,2,3,4,5]
+console.log(Array.isArray(compress([1,2,2,3,4,4,5,5,5]))) // [1,2,3,4,5]
+console.log([1,2,2,3,4,4,5,5,5]) // [1,2,3,4,5]
 console.log(compress([1,2,2,3,4,4,2,5,5,5,4,4])) // [1,2,3,4,2,5,4]
 
 
