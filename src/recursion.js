@@ -251,24 +251,23 @@ var powerOfTwo = function(n) {
       return powerOfTwo(n / 2)
     }
 };
-/*// powerOfTwo recursive: data & tests
-var num = 4;
-console.log("4=>true: ", powerOfTwo(num));
-num = 1;
-console.log("1=>true: ", powerOfTwo(num));
-num = 1/2;
-console.log("1/2=>true: ", powerOfTwo(num));
-num = 1/16;
-console.log("1/16=>true: ", powerOfTwo(num));
-num = 0;
-console.log("0=>false: ", powerOfTwo(num));
-num = -6;
-console.log("-6=>false: ", powerOfTwo(num));
-num = 5;
-console.log("5=>false: ", powerOfTwo(num));
-num = 1/5;
-console.log("1/5=>false: ", powerOfTwo(num)); 
-*/
+// powerOfTwo recursive: data & tests
+// var num = 4;
+// console.log("4=>true: ", powerOfTwo(num));
+// num = 1;
+// console.log("1=>true: ", powerOfTwo(num));
+// num = 1/2;
+// console.log("1/2=>true: ", powerOfTwo(num));
+// num = 1/16;
+// console.log("1/16=>true: ", powerOfTwo(num));
+// num = 0;
+// console.log("0=>false: ", powerOfTwo(num));
+// num = -6;
+// console.log("-6=>false: ", powerOfTwo(num));
+// num = 5;
+// console.log("5=>false: ", powerOfTwo(num));
+// num = 1/5;
+// console.log("1/5=>false: ", powerOfTwo(num)); 
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
@@ -318,15 +317,15 @@ var palindrome = function(string) {
     }
   }
 };
-/*// palindrome, recursive: data & tests
-var str = '';
-console.log("nullStr: ", palindrome(str));
-str = 'abc';
-console.log("nullStr: ", palindrome(str));
-str = 'abcba';
-console.log("nullStr: ", palindrome(str));
-str = 'abba';
-console.log("nullStr: ", palindrome(str)); */
+// palindrome, recursive: data & tests
+// var str = '';
+// console.log("nullStr: ", palindrome(str));
+// str = 'abc';
+// console.log("nullStr: ", palindrome(str));
+// str = 'abcba';
+// console.log("nullStr: ", palindrome(str));
+// str = 'abba';
+// console.log("nullStr: ", palindrome(str));
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
@@ -352,24 +351,24 @@ var modulo = function(x, y) {
   return modulo(x - y, y);
 };
 // modulo recursively: data & tests
-/*var x = 1;
-var y = 0;
-console.log("1,0: ", modulo(x,y));
-x = 0;
-y = 1;
-console.log("0,1: ", modulo(x,y));
-x = 5;
-y = 2;
-console.log("5,2: ", modulo(x,y));
-x = 17;
-y = 5;
-console.log("17,5: ", modulo(x,y));
-x = 20;
-y = 4;
-console.log("20,4: ", modulo(x,y));
-x = -20;
-y = 4;
-console.log("-20,4: ", modulo(x,y));*/
+// var x = 1;
+// var y = 0;
+// console.log("1,0: ", modulo(x,y));
+// x = 0;
+// y = 1;
+// console.log("0,1: ", modulo(x,y));
+// x = 5;
+// y = 2;
+// console.log("5,2: ", modulo(x,y));
+// x = 17;
+// y = 5;
+// console.log("17,5: ", modulo(x,y));
+// x = 20;
+// y = 4;
+// console.log("20,4: ", modulo(x,y));
+// x = -20;
+// y = 4;
+// console.log("-20,4: ", modulo(x,y));
 
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
@@ -418,7 +417,6 @@ var divide = function(x, y) {
     return divide(x - y, y) + 1;
   }
 };
-/* operator or
 // Math methods to arrive at an approximate quotient (ignore decimal endings).
 var divide = function(x, y) {
   // base cases
@@ -438,24 +436,24 @@ var divide = function(x, y) {
   }
 };
 // divide recursively: data and tests
-var x = 1;
-var y = 0
-console.log("1,0: ", divide(x,y));
-x = 0;
-y = 1;
-console.log("0,1: ", divide(x,y));
-x = 13;
-y = 6;
-console.log("13,6: ", divide(x,y));
-x = -5;
-y = 2;
-console.log("-5,2: ", divide(x,y));
-x = 5;
-y = -2;
-console.log("5,-2: ", divide(x,y));
-x = -10;
-y = -2;
-console.log("-5,-2: ", divide(x,y));*/
+// var x = 1;
+// var y = 0
+// console.log("1,0: ", divide(x,y));
+// x = 0;
+// y = 1;
+// console.log("0,1: ", divide(x,y));
+// x = 13;
+// y = 6;
+// console.log("13,6: ", divide(x,y));
+// x = -5;
+// y = 2;
+// console.log("-5,2: ", divide(x,y));
+// x = 5;
+// y = -2;
+// console.log("5,-2: ", divide(x,y));
+// x = -10;
+// y = -2;
+// console.log("-5,-2: ", divide(x,y));
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
 // integers is the greatest integer that divides both x and y with no remainder.
@@ -475,19 +473,19 @@ var gcd = function(x, y) {
     return gcd(x, y-x);
   }
 };
-/*// gcd recursive: data and tests
-var x = 36;
-var y = 24;
-console.log("36, 24: ", gcd(x,y));
-x = 12;
-y = 24;
-console.log("12, 24: ", gcd(x,y));
-x = 12;
-y = 12;
-console.log("12, 12: ", gcd(x,y));
-x = 0;
-y = 12;
-console.log("0, 12: ", gcd(x,y));*/
+// gcd recursive: data and tests
+// var x = 36;
+// var y = 24;
+// console.log("36, 24: ", gcd(x,y));
+// x = 12;
+// y = 24;
+// console.log("12, 24: ", gcd(x,y));
+// x = 12;
+// y = 12;
+// console.log("12, 12: ", gcd(x,y));
+// x = 0;
+// y = 12;
+// console.log("0, 12: ", gcd(x,y));
 
 // 15. Write a function that compares each character of two strings and returns true if
 // both are identical.
@@ -513,19 +511,19 @@ var compareStr = function(str1, str2) {
     }
   }
 };
-/*// compareStr recursive: data & tests
-var str1 = "";
-var str2 = "abc";
-console.log("'', abc: ", compareStr(str1, str2));
-str1 = "abc";
-str2 = "abc";
-console.log("abc, abc: ", compareStr(str1, str2));
-str1 = "abc";
-str2 = "abcd";
-console.log("abc, abcd: ", compareStr(str1, str2));
-str1 = "abcd";
-str2 = "abc";
-console.log("abcd, abc: ", compareStr(str1, str2));*/
+// compareStr recursive: data & tests
+// var str1 = "";
+// var str2 = "abc";
+// console.log("'', abc: ", compareStr(str1, str2));
+// str1 = "abc";
+// str2 = "abc";
+// console.log("abc, abc: ", compareStr(str1, str2));
+// str1 = "abc";
+// str2 = "abcd";
+// console.log("abc, abcd: ", compareStr(str1, str2));
+// str1 = "abcd";
+// str2 = "abc";
+// console.log("abcd, abc: ", compareStr(str1, str2));
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
@@ -538,12 +536,12 @@ var createArray = function(str) {
     return [str.charAt(0)].concat(createArray(str.substr(1)))
   }
 };
-/*// createArray recursive: data & tests
-var str = "";
-console.log("'': ", createArray(str));
-var str = "abc";
-console.log("abc: ", createArray(str));
-*/
+// createArray recursive: data & tests
+// var str = "";
+// console.log("'': ", createArray(str));
+// var str = "abc";
+// console.log("abc: ", createArray(str));
+
 
 // 17. Reverse the order of an array
 var reverseArr = function(array) {
@@ -558,11 +556,11 @@ var reverseArr = function(array) {
     return [].concat(reverseArr(shorterArr), [tempArr[0]])
   }
 };
-/*// reverseArr recursive: data & tests
-var arr = [];
-console.log("[]: ", reverseArr(arr));
-arr = ["a", "b", "c", "d"];
-console.log("[a,b,c,d]: ", reverseArr(arr));*/
+// reverseArr recursive: data & tests
+// var arr = [];
+// console.log("[]: ", reverseArr(arr));
+// arr = ["a", "b", "c", "d"];
+// console.log("[a,b,c,d]: ", reverseArr(arr));
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
@@ -596,11 +594,11 @@ var fizzBuzz = function(n) {
   fizzBuzzArr.push(val.toString());
   return (fizzBuzz(n-1).concat(fizzBuzzArr))
 };
-/*// fizzBuzz recursive: data and tests
-var n = 0
-console.log("0: ", fizzBuzz(n));
-n = 5
-console.log("5: ", fizzBuzz(n));*/
+// fizzBuzz recursive: data and tests
+// var n = 0
+// console.log("0: ", fizzBuzz(n));
+// n = 5
+// console.log("5: ", fizzBuzz(n));
 
 // 20. Count the occurence of a value in a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
@@ -616,15 +614,15 @@ var countOccurrence = function(array, value) {
   return (count + countOccurrence(array.slice(1), value))
 };
 // countOccurrence recursive: data and tests
-/*var arr = [];
-var val = 4;
-console.log("[], 4: ", countOccurrence(arr, val));
-arr = [2,7,4,4,1,4];
-val = 4;
-console.log("[2,7,4,4,1,4], 4: ", countOccurrence(arr, val));
-arr = [2,'banana',4,4,1,'banana'];
-val = 'banana';
-console.log("[2,'banana',4,4,1,'banana'], 4: ", countOccurrence(arr, val));*/
+// var arr = [];
+// var val = 4;
+// console.log("[], 4: ", countOccurrence(arr, val));
+// arr = [2,7,4,4,1,4];
+// val = 4;
+// console.log("[2,7,4,4,1,4], 4: ", countOccurrence(arr, val));
+// arr = [2,'banana',4,4,1,'banana'];
+// val = 'banana';
+// console.log("[2,'banana',4,4,1,'banana'], 4: ", countOccurrence(arr, val));
 
 
 // 21. Write a recursive version of map.
@@ -640,11 +638,11 @@ var rMap = function(array, callback) {
   }
 };
 // rMap recursive: data & tests
-/*var arr = [1,2,3];
-var cbFn = function(n) {
-  return n * 2
-}
-console.log("[1,2,3], n*2: ", rMap(arr, cbFn)); */
+// var arr = [1,2,3];
+// var cbFn = function(n) {
+//   return n * 2
+// }
+// console.log("[1,2,3], n*2: ", rMap(arr, cbFn));
 
 // 22. Write a function that counts the number of times a key occurs in an object.
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
@@ -658,9 +656,9 @@ console.log("[1,2,3], n*2: ", rMap(arr, cbFn)); */
     return accum
   }), 0);
 // countKeysInObj recursive: data & tests
-/*var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
-console.log(countKeysInObj(obj, 'r')) // 1
-console.log(countKeysInObj(obj, 'e')) // 2 */
+// var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
+// console.log(countKeysInObj(obj, 'r')) // 1
+// console.log(countKeysInObj(obj, 'e')) // 2 
   
 
 
@@ -680,14 +678,14 @@ var countValuesInObj = function(obj, value) {
   }
   return count;
 };
-/*// countValuesInObj recursive: data & tests
-var obj1 = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
-console.log("e,1: ", countValuesInObj(obj1, 'e')); // 1
-console.log("x,0: ", countValuesInObj(obj1, 'x')); // 1
-console.log("y,1: ", countValuesInObj(obj1, 'y')); // 1
-console.log("t,0: ", countValuesInObj(obj1, 't')); // 1
-console.log("r,2: ", countValuesInObj(obj1, 'r')); // 2
-console.log("p,0: ", countValuesInObj(obj1, 'p')); // 1 */
+// countValuesInObj recursive: data & tests
+// var obj1 = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
+// console.log("e,1: ", countValuesInObj(obj1, 'e')); // 1
+// console.log("x,0: ", countValuesInObj(obj1, 'x')); // 1
+// console.log("y,1: ", countValuesInObj(obj1, 'y')); // 1
+// console.log("t,0: ", countValuesInObj(obj1, 't')); // 1
+// console.log("r,2: ", countValuesInObj(obj1, 'r')); // 2
+// console.log("p,0: ", countValuesInObj(obj1, 'p')); // 1
 
 // countValuesInObj recursive: data & tests
 /*var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
